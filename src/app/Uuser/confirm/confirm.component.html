@@ -1,0 +1,72 @@
+<app-bar></app-bar>
+
+
+<div style="text-align:center">
+
+<div > 
+    <h4>แบบฟอร์มเบิก / ยืม สารเคมี วัสดุ เครื่องแก้ว</h4></div><br>
+
+    
+     <div> ห้องปฎิบัติการ  คณะวิทยาศาสตร์การแพทย์ </div>
+     <strong>ชื่อ-นามสกุล : {{su.FirstName_TH}} {{su.LastName_TH}}  </strong> 
+     <strong> รหัสนิสิต :{{su.StudentCode}} </strong>
+     <strong> เบอร์โทร : </strong> 
+     <strong> สาขาวิชา : {{su.ProgramName_TH}} </strong>  
+     <strong>คณะ : {{su.FacultyName_TH}} </strong><br>
+
+    <b>มีความประสงค์ขอเบิก/ยืม รายการวัสดุ สารเคมีต่อไปนี้จากห้องปฎิบัติการ เพื่อใช้ในงาน : </b>
+</div><br>    
+
+<div class="container">
+    <div class="row">
+       <div class="table-responsive">
+       <table  style="width: 100%" >
+           
+           <thead>
+             <tr> 
+     
+               <th style="text-align:center"rowspan="4" width="3%"> ลำดับ </th>
+               <th style="text-align:center"rowspan="4" width="15%"> รายการที่ต้องการเบิก/ยืม</th>
+               <th style="text-align:center"rowspan="4" width="8%"> สูตรเคมี </th>
+               <th style="text-align:center"rowspan="4" width="8%"> เกรด </th>
+               <th style="text-align:center"rowspan="4" width="8%"> ขนาด </th>
+               <th style="text-align:center"colspan="4" width="20%">จำนวน/ปริมาณที่ต้องใช้ (ระบุหน่วย) </th>
+               <th style="text-align:center"rowspan="4" align="right" width="8%">หมายเหตุ  </th>
+               </tr>
+               <tr>
+                 <td style="text-align:center">เบิก</td>
+                 <td style="text-align:center">หน่วย</td>
+                 <td style="text-align:center">ยืม</td>
+                  <td style="text-align:center">หน่วย</td>
+               </tr>
+              
+           </thead>
+           
+           <tbody style="width: 100%" id="myTable">
+                <tr *ngFor="let a of data;let i = index" >
+                     <th style="text-align:center">{{i+1}}</th>
+                     <th>{{a.list}}</th> 
+                     <th>{{a.chem}}</th>
+                     <th>{{a.gread}}</th>
+                     <th>{{a.size}}</th>
+                     <th>{{a.amount1}}</th>              
+                     <th>{{a.unit_n1}}</th>  
+                     <th>{{a.amount2}}</th> 
+                     <th>{{a.unit_n2}}</th> 
+                     <th>{{a.commet}}</th> 
+                </tr>
+            </tbody>               
+       
+       </table>
+     
+   </div> 
+   </div>   
+   </div><br>
+
+<div style="text-align:center"  >
+   <strong> วันที่ยืม : {{dateborrow}}  </strong> 
+   <strong> วันที่คืน : {{datereturn}} </strong><br>
+   <strong> อาจารย์ที่ปรึกษา : {{adviser}}</strong> 
+</div><br>    
+
+

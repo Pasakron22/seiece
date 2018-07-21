@@ -1,0 +1,162 @@
+<div *ngIf='!is_confirm'>
+ 
+    
+
+
+
+        
+
+<app-bar></app-bar>
+
+
+
+
+<div style="text-align:center"> 
+     <h3>แบบฟอร์มเบิก / ยืม สารเคมี วัสดุ เครื่องแก้ว</h3>
+</div>
+<div style="text-align:center">
+ ห้องปฎิบัติการ <input type="text" name="room" > คณะวิทยาศาสตร์การแพทย์ <br>
+           
+           <strong>ชื่อ-นามสกุล : {{su.FirstName_TH}} {{su.LastName_TH}}  </strong> 
+           <strong> รหัสนิสิต :{{su.StudentCode}} </strong>
+           <strong> เบอร์โทร : </strong> 
+           <strong> สาขาวิชา : {{su.ProgramName_TH}} </strong>  
+           <strong>คณะ : {{su.FacultyName_TH}} </strong><br>
+           
+         
+           <input type='radio' name='id_position' id='id_position' value='1'>อาจารย์ &emsp;
+           <input type='radio' name='id_position' id='id_position' value='2'>เจ้าหน้าที่ &emsp;
+           <input type='radio' name='id_position' id='id_position' value='3'>นิสิตปริญญาตรี &emsp;
+           <input type='radio' name='id_position' id='id_position' value='4'>นิสิตปริญญาโท &emsp;
+           <input type='radio' name='id_position' id='id_position' value='5'>นิสิตปริญญาเอก &emsp;
+           <input type='radio' name='id_position' id='id_position' value='6'>อื่นๆ &emsp;      
+
+         <ul>
+          
+              มีความประสงค์ขอเบิก/ยืม รายการวัสดุ สารเคมีต่อไปนี้จากห้องปฎิบัติการ เพื่อใช้ในงาน
+          <input type="radio" name="pro" value="การทำโครงงาน"> การทำโครงงาน
+
+          <input type="radio" name="pro" value="บทปฎิบัติการ เรื่อง "  > บทปฎิบัติการ เรื่อง <input type="text" name="txt" id="txt" size="10"> 
+
+          <input type="radio" name="pro" value=" อื่นๆ  "  > อื่นๆ <input type="text" name="txt" id="txt" size="10">
+        </ul>   
+
+
+        
+    
+    <br>
+
+ </div>
+ 
+ <div class="container">
+ <div class="row">
+    <div class="table-responsive">
+    <table>
+        
+        <thead>
+          <tr> 
+  
+            <th style="text-align:center"rowspan="4" width="4%"> ลำดับ </th>
+            <th style="text-align:center"rowspan="4" width="15%"> รายการที่ต้องการเบิก/ยืม</th>
+            <th style="text-align:center"rowspan="4" width="8%"> ขนาด </th>
+            <th style="text-align:center"colspan="4" width="20%">จำนวน/ปริมาณที่ต้องใช้ (ระบุหน่วย) </th>
+            <th style="text-align:center"rowspan="4" align="right" width="8%">หมายเหตุ  </th>
+            </tr>
+            <tr>
+              <td style="text-align:center">เบิก</td>
+              <td style="text-align:center">หน่วย</td>
+              <td style="text-align:center">ยืม</td>
+               <td style="text-align:center">หน่วย</td>
+            </tr>
+           
+        </thead>
+        
+        <tbody style="width: 100%" id="myTable">
+                <tr *ngFor="let a of data;let i = index">
+                     <th style="text-align:center">{{i+1}}</th>
+                     <th><input style='border: non'  type='text' name='list[]' ngxTypeahead [taList]="listauto"
+                      [taListItemLabel]="'name_eng'" (taSelected)="getlistauto($event,i)" [(ngModel)]="a.list" [value]='a.list' size='26' ></th> 
+                     <th><input style='border: none'  type='text' name='size[]' [(ngModel)]="a.size" size='12' value=''></th>
+                     <th><input style='border: none'  type='text' name='amount1[]'  [(ngModel)]="a.amount1" size='5' value=''></th> 
+                     <th> <select  name='unit_n1[]' [(ngModel)]='a.unit_n1'>
+                            <option value='null'>-</option>
+                            <option *ngFor="let u of showunit" value="{{u.id_unit}}" ><p>{{u.unit_name}}</p></option>
+                               
+                            </select></th>
+                     <th><input style='border: none'  type='text' name='amount2[]' [(ngModel)]="a.amount2" size='5' value=''></th> 
+                     <th> <select name='unit_n2'[(ngModel)]='a.unit_n2' >
+                            <option value='-'>-</option>
+                            <option *ngFor="let u of showunit" value="{{u.id_unit}}"><p>{{u.unit_name}}</p></option>
+                               
+                            </select></th> 
+                     <th><input style='border: none'  type='text' name='commet[]'  [(ngModel)]="a.commet" size='10' value=''></th> 
+                </tr>
+            </tbody>               
+    
+    </table>
+     
+
+    
+
+           
+  
+</div> 
+</div>   
+</div><br>
+
+
+
+
+   
+
+    <div style="padding-left:150px;margin-left:150px;">
+            <div class="row">
+                    <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+                            <input class="form-control"
+                                   placeholder="วันที่ยืม"
+                                
+                                   bsDatepicker
+                                   [minDate]="minDate"
+                                   [maxDate]="maxDate"
+                                   value="{{dateborrow | date:'dd/MM/yyyy'}}"
+                                   [bsConfig]="{dateInputFormat: 'dd/MM/yyyy'}"
+                                   name="dateborrow" [(bsValue)]='dateborrow'
+                                   name="datereturn" [(bsValue)]='datereturn'>
+                                   
+                          </div>
+                 </div>
+        <strong> อาจารย์ที่ปรึกษา : </strong>
+        <select class="selectpicker" name="adviser" [(ngModel)]='adviser'>
+          <option value='-'>-</option>
+          <option *ngFor="let a of showadviser" value="{{a.name}}"  ><p>{{a.name}}</p></option>
+          </select>
+      </div>
+     
+     
+
+<form (submit)="user(true)">   
+    <div style="text-align:center" class="col-sm-offset-2 col-sm-8">
+        <input type="submit" name="submit" value="ยืนยัน" class="btn btn-primary">
+       
+             
+      </div>
+</form>
+
+
+</div>
+
+<div *ngIf='is_confirm'>
+  <app-confirm [data]='data' [adviser]='adviser' [unit_n1]='unit_n1' [unit_n2]='unit_n2' [dateborrow]='dateborrow' [datereturn]='datereturn' ></app-confirm>
+</div>
+
+
+<div *ngIf='is_confirm'>
+
+ <div style="text-align:center" class="container">
+    <input type=button class="btn btn-warning btn-md" (click)='user(false)' value="แก้ไข">&emsp;&emsp;
+    
+
+    <input type="submit" name="submit" value="ยืนยัน" class="btn btn-primary btn-md" >
+    
+  </div>
+</div>

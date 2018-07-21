@@ -1,0 +1,71 @@
+<app-bar-teacher></app-bar-teacher>
+
+<div style="text-align:center">
+
+    <div > 
+        <h4>แบบฟอร์มเบิก / ยืม สารเคมี วัสดุ เครื่องแก้ว</h4></div><br>
+    
+        
+         <div> ห้องปฎิบัติการ  คณะวิทยาศาสตร์การแพทย์ </div>
+        <strong>ชื่อ-นามสกุล : </strong> 
+        <strong> รหัสนิสิต : </strong>
+        <strong> เบอร์โทร : </strong>
+        <strong> สาขาวิชา : </strong>   
+        <strong>คณะ :</strong>วิทยาศาสตร์การแพทย์<br>
+    
+        <b>มีความประสงค์ขอเบิก/ยืม รายการวัสดุ สารเคมีต่อไปนี้จากห้องปฎิบัติการ เพื่อใช้ในงาน : </b>
+    </div><br>    
+    
+    <div class="container">
+        <div class="row">
+           <div class="table-responsive">
+           <table  style="width: 100%" >
+               
+               <thead>
+                 <tr> 
+         
+                   <th style="text-align:center"rowspan="4" width="3%"> ลำดับ </th>
+                   <th style="text-align:center"rowspan="4" width="15%"> รายการที่ต้องการเบิก/ยืม</th>
+                   <th style="text-align:center"rowspan="4" width="8%"> สูตรเคมี </th>
+                   <th style="text-align:center"rowspan="4" width="8%"> เกรด </th>
+                   <th style="text-align:center"rowspan="4" width="8%"> ขนาด </th>
+                   <th style="text-align:center"colspan="4" width="20%">จำนวน/ปริมาณที่ต้องใช้ (ระบุหน่วย) </th>
+                   <th style="text-align:center"rowspan="4" align="right" width="8%">หมายเหตุ  </th>
+                   </tr>
+                   <tr>
+                     <td style="text-align:center">เบิก</td>
+                     <td style="text-align:center">หน่วย</td>
+                     <td style="text-align:center">ยืม</td>
+                      <td style="text-align:center">หน่วย</td>
+                   </tr>
+                  
+               </thead>
+               <tbody style="width: 100%" id="myTable">
+                    <tr *ngFor="let q of data;let i = index" >
+                            <th style="text-align:center">{{i+1}}</th>
+                            <th>{{q.list}}</th> 
+                            <th>{{q.chem}}</th>
+                            <th>{{q.gread}}</th>
+                            <th>{{q.size}}</th>
+                            <th>{{q.amount1}}</th>              
+                            <th>{{unit_n1}}</th>  
+                            <th>{{q.amount2}}</th> 
+                            <th></th> 
+                            <th>{{q.commet}}</th> 
+                       </tr>
+                    </tbody>
+       
+           
+           </table>
+         
+       </div> 
+       </div>   
+       </div><br>
+    
+    <div style="text-align:center">
+       <strong> วันที่ยืม : </strong> 
+       <strong> วันที่คืน : </strong><br>
+     
+    </div><br>    
+    
+ 

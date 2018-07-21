@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">ระบบจองสารเคมี/วัสดุ/เครื่องแก้ว</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a routerLink="/index-authorities"><span class="glyphicon glyphicon-home " aria-hidden="true"> หน้าแรก </span></a></li>
+      <li><a routerLink="/show-retuer-a">คืนอุปกรณ์</a></li>
+      <li><a routerLink="/show-c-a">รายชื่อสารเคมี</a></li>
+      <li><a routerLink="/show-e-a">รายชื่อวัสดุและเครื่องแกล้ว</a></li>
+
+
+      <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" routerLink="#">รายงานการใช้งาน<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+
+          <li><a routerLink="/summarize-today-e">สรุปการใช้วัสดุ เครื่องแก้วที่ต้องการยืมวันนี้</a></li>
+          <li><a routerLink="/summarize-user-e">สรุปการใช้วัสดุ เครื่องแก้วของนิสิต</a></li>
+          <li><a routerLink="/summarize-user-of-e">สรุปการใช้วัสดุ เครื่องแก้วโดยกำหนดวันที่</a></li>
+          <li><a routerLink="/summarize-bottle-e">สรุปการใช้วัสดุ เครื่องแก้วแต่ละชิ้น</a></li>
+          <li><a routerLink="/summarize-reservation-e">สรุปจำนวนของวัสดุอุปกรณ์และสารเคมีที่จองล่วงหน้า</a></li>
+          
+        </ul>
+      </li>
+
+
+      
+      
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/" ><span class="glyphicon glyphicon-log-out" aria-hidden="true"> ออกจากระบบ</span></a></li>
+    </ul>
+  </div>
+</nav>
+  
+
+</body>
+</html>
